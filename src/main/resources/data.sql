@@ -1,0 +1,3 @@
+INSERT INTO STUDY (author, title, content, likes, location, use_banner, published, recruiting, closed) VALUES ('작성자 1', '제목 1', '내용 1', 11, '1xx.xxx', 'false', 'true', 'true', 'false')
+INSERT INTO STUDY (author, title, content, likes, location, use_banner, published, recruiting, closed) VALUES ('작성자 2', '제목 2', '내용 2', 22, '2xx.xxx', 'false', 'true', 'true', 'false')
+INSERT INTO STUDY (author, title, content, likes, location, use_banner, published, recruiting, closed) VALUES ('작성자 3', '제목 3', '내용 3', 33, '3xx.xxx', 'false', 'true', 'true', 'false')
