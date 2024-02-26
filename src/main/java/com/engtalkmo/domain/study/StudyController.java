@@ -1,5 +1,8 @@
 package com.engtalkmo.domain.study;
 
+import com.engtalkmo.domain.study.Study;
+import com.engtalkmo.domain.study.StudyRepository;
+import com.engtalkmo.domain.study.StudyService;
 import com.engtalkmo.domain.study.dto.CreateStudyRequest;
 import com.engtalkmo.domain.study.dto.StudyResponse;
 import com.engtalkmo.domain.study.dto.UpdateStudyRequest;

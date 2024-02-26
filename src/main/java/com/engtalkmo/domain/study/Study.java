@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity
-@Table(name = "Study", indexes = {
+@Table(name = "STUDY", indexes = {
         @Index(name = "idx_study_recruiting", columnList = "recruiting")
 })
 public class Study extends BaseTimeEntity {
@@ -36,11 +36,11 @@ public class Study extends BaseTimeEntity {
     @Column(name = "location")
     private String location;
 
-    @Column(name = "banner_image")
-    private String bannerImage;
-
     @Column(name = "use_banner")
     private boolean useBanner;
+
+    @Column(name = "banner_image")
+    private String bannerImage;
 
     private boolean published;
     private LocalDateTime publishedDate;
