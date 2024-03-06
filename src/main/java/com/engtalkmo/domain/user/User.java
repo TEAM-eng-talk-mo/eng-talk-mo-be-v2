@@ -29,14 +29,29 @@ public class User extends BaseTimeEntity implements UserDetails {
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "username")
-    private String username;
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "picture")
+    private String picture;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
     @Builder
-    public User(String email, String password, String username) {
+    public User(String email, String password, String name, String picture, Role role) {
         this.email = email;
         this.password = password;
-        this.username = username;
+        this.name = name;
+        this.picture = picture;
+        this.role = role;
+    }
+
+    public User update(String name, String picture) {
+        this.name = name;
+        this.picture = picture;
+        return this;
     }
 
     @Override // 권한 반환
