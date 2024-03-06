@@ -12,11 +12,12 @@ public class UserService {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public Long signUp(CreateUserRequest request) {
+    public Long signup(CreateUserRequest request) {
         return userRepository.save(User.builder()
                 .email(request.email())
                 .password(passwordEncoder.encode(request.password()))
                 .username(request.username())
                 .build()).getId();
     }
+
 }

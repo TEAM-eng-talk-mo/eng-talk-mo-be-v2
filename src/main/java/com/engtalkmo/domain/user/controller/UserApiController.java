@@ -20,7 +20,7 @@ public class UserApiController {
 
     @PostMapping("/user")
     public String signUp(@ModelAttribute CreateUserRequest request) {
-        userService.signUp(request);
+        userService.signup(request);
         return "redirect:/login";
     }
 
