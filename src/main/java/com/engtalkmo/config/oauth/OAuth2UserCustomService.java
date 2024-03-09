@@ -37,8 +37,6 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
         OAuth2Attribute attributes = OAuth2Attribute.of(
                 registrationId, userNameAttributeName, oAuth2User.getAttributes());
 
-        log.info("OAuth2Attribute >>>> {}", attributes);
-
         // attributes 를 통해 회원이 존재 유무에 따라 저장 또는 업데이트를 한다.
         User user = saveOrUpdate(attributes);
 
@@ -46,7 +44,7 @@ public class OAuth2UserCustomService extends DefaultOAuth2UserService {
         return new DefaultOAuth2User(
                 Collections.singleton(new SimpleGrantedAuthority(user.getRole().name())),
                 attributes.attributes(),
-                attributes.attributeKey());
+                "email");
     }
 
     private User saveOrUpdate(OAuth2Attribute attributes) {

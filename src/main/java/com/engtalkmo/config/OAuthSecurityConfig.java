@@ -7,8 +7,6 @@ import com.engtalkmo.config.oauth.OAuth2SuccessHandler;
 import com.engtalkmo.config.oauth.OAuth2UserCustomService;
 import com.engtalkmo.domain.refreshtoken.RefreshTokenRepository;
 import com.engtalkmo.domain.user.UserRepository;
-import com.engtalkmo.domain.user.UserService;
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
