@@ -16,13 +16,18 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final TokenProvider tokenProvider;
     private final static String HEADER_AUTHORIZATION = "Authorization";
-    private final static String TOKEN_PREFIX = "EngTalk ";
+    private final static String TOKEN_PREFIX = "Bearer ";
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+
+        // 요청 헤더의 Authorization 키의 값을 조회한다.
         String authorizationHeader = request.getHeader(HEADER_AUTHORIZATION);
+
+        // 가져온 값의 접두사(Bearer )를 제거한다.
         String accessToken = getAccessToken(authorizationHeader);
 
+        // 토큰이 유효한지 검증하고, 유효할 경우 SecurityContextHolder 에 인증 정보를 저장한다.
         if (tokenProvider.validToken(accessToken)) {
             Authentication authentication = tokenProvider.getAuthentication(accessToken);
             SecurityContextHolder.getContext().setAuthentication(authentication);

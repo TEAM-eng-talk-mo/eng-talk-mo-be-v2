@@ -17,6 +17,8 @@ public class TokenService {
     private final UserRepository userRepository;
 
     public String createAccessToken(String refreshToken) {
+
+        // 토큰 유효성 검증을 한다. (실패하면 예외 처리)
         if (!tokenProvider.validToken(refreshToken)) {
             throw new IllegalArgumentException("Unexpected token");
         }
@@ -27,6 +29,7 @@ public class TokenService {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new IllegalArgumentException("Unexpected user"));
 
+        // 유저 정보와 함께 유효시간이 2시간으로 설정된 AccessToken 을 생성한다.
         return tokenProvider.generateToken(user, Duration.ofHours(2));
     }
 }
