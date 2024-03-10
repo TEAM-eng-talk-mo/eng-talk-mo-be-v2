@@ -1,5 +1,6 @@
 package com.engtalkmo.config.jwt;
 
+import com.engtalkmo.domain.user.Role;
 import com.engtalkmo.domain.user.User;
 import com.engtalkmo.domain.user.UserRepository;
 import io.jsonwebtoken.Jwts;
@@ -34,6 +35,8 @@ class TokenProviderTest {
         User testUser = userRepository.save(User.builder()
                 .email("user@email.com")
                 .password("test")
+                .name("name")
+                .role(Role.USER)
                 .build());
 
         // when

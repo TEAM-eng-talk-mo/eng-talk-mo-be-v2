@@ -5,6 +5,7 @@ import com.engtalkmo.config.jwt.JwtProperties;
 import com.engtalkmo.domain.refreshtoken.RefreshToken;
 import com.engtalkmo.domain.refreshtoken.RefreshTokenRepository;
 import com.engtalkmo.domain.refreshtoken.dto.CreateAccessTokenRequest;
+import com.engtalkmo.domain.user.Role;
 import com.engtalkmo.domain.user.User;
 import com.engtalkmo.domain.user.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -54,6 +55,8 @@ class TokenApiControllerTest {
         User user = userRepository.save(User.builder()
                 .email("user@email.com")
                 .password("test")
+                .name("name")
+                .role(Role.USER)
                 .build());
 
         String refreshToken = JwtFactory.builder()
