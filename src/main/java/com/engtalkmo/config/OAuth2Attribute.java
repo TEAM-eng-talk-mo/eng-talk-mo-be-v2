@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j
 @Builder
 public record OAuth2Attribute(
         Map<String, Object> attributes,
